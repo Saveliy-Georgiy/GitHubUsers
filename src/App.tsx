@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Route, Routes} from 'react-router-dom';
 import './App.css';
+import {Header} from './components/Header/Header';
+import {InitialState} from './components/InitialState/InitialState';
+import {User} from './components/User/User';
+import {UserNotFound} from './components/UserNotFound/UserNotFound';
+import {RepositoriesNotFound} from "./components/RepositoriesNotFound/RepositoriesNotFound";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <div className="App">
+            <Header/>
+            <div className="appWrapperContent">
+                <Routes>
+                    <Route path="/"
+                           element={<InitialState/>}/>
+                    <Route path="/user"
+                           element={<User/>}/>
+                    <Route path="/user-not-found"
+                           element={<UserNotFound/>}/>
+                    <Route path="/repositories-not-found"
+                           element={<RepositoriesNotFound/>}/>
+                </Routes>
+            </div>
+        </div>
+    );
 }
 
 export default App;
