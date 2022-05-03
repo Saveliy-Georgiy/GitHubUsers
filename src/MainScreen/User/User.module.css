@@ -1,0 +1,47 @@
+.userWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 39px 0 0 57px;
+}
+
+.avatar {
+    height: 280px;
+    width: 280px;
+    border-radius: 140px;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 130%;
+    padding-top: 20px;
+}
+
+.login {
+    text-decoration: none;
+    padding-top: 12px;
+    font-size: 18px;
+    color: #0064EB;
+}
+
+.peopleWrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.people {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 25px 20px 0 0;
+    font-size: 16px;
+}
+
+.people img {
+    padding-right: 3px;
+}

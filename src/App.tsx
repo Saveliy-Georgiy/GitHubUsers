@@ -3,26 +3,24 @@ import {Route, Routes} from 'react-router-dom';
 import './App.css';
 import {Header} from './components/Header/Header';
 import {InitialState} from './components/InitialState/InitialState';
-import {User} from './components/User/User';
 import {UserNotFound} from './components/UserNotFound/UserNotFound';
 import {RepositoriesNotFound} from "./components/RepositoriesNotFound/RepositoriesNotFound";
+import {MainScreen} from './MainScreen/MainScreen';
 
 const App = () => {
     return (
-        <div className="App">
-            <Header/>
-            <div className="appWrapperContent">
+        <div>
+           <Header/>
                 <Routes>
                     <Route path="/"
                            element={<InitialState/>}/>
                     <Route path="/user"
-                           element={<User/>}/>
+                           element={<MainScreen/>}/>
                     <Route path="/user-not-found"
                            element={<UserNotFound/>}/>
                     <Route path="/repositories-not-found"
                            element={<RepositoriesNotFound/>}/>
                 </Routes>
-            </div>
         </div>
     );
 }

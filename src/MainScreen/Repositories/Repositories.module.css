@@ -1,0 +1,17 @@
+.repositoriesWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.paginator {
+    padding: 10px;
+}
+
+.selectedPage {
+    font-weight: bold;
+    padding: 2px;
+}
+
+.simplePage {
+    padding: 2px;
+}

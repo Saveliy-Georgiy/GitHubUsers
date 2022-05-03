@@ -2,10 +2,11 @@
     display: flex;
     justify-content: left;
     align-items: center;
-    height: 72px;
     background: #0064EB;
     position: fixed;
+    height: 8vh;
     width: 100%;
+    z-index: 1;
 }
 
 .header img {
