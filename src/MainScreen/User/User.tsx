@@ -23,7 +23,7 @@ export const User = () => {
             <img src={user.avatar_url} className={s.avatar}/>
             <div className={s.information}>
                 <span className={s.name}>{finalUserName}</span>
-                <a href={user.html_url} className={s.login}>{user.login}</a>
+                <a href={user.html_url} className={s.login} target="__blank">{user.login}</a>
                 <div className={s.peopleWrapper}>
                     <div className={s.people}>
                         <img src={followers}/>

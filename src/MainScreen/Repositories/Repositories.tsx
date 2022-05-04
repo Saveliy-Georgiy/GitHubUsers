@@ -31,7 +31,7 @@ export const Repositories = () => {
             {
                 repositories.map(r => <div key={r.id} className={s.repository}>
                     <div className={s.textWrapper}>
-                        <a className={s.name} href={r.html_url}>{r.name}</a>
+                        <a className={s.name} href={r.html_url} target="__blank">{r.name}</a>
                         <div className={s.description}>{r.description}</div>
                     </div>
                 </div>)

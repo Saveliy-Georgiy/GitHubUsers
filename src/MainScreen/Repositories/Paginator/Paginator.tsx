@@ -43,10 +43,12 @@ export const Paginator = (props: PaginatorPropsType) => {
 const finalPageStyle = (pageNumber: number | string) => {
     return `${s.paginationItem} ${currentPage === pageNumber && s.selectedPage}`
 }
-
+const finalListPages = `${s.paginationItem}  ${s.listPages}`
     return (
         <div className={s.paginationContainer}>
-            <div>{4*currentPage-3}-{4*currentPage} of {totalCount} items</div>
+            <div className={finalListPages}>
+                {4*currentPage-3}-{4*currentPage} of {totalCount} items
+            </div>
             <div className={s.paginationItem}>
                 {currentPage === 1
                     ? <img src={arrowLeftGrey} alt="prev" className={s.arrow}/>
