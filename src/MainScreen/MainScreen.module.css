@@ -1,17 +1,15 @@
 .screenWrapper {
-    min-height: 92vh;
-    padding-top: 8vh;
+    padding-top: 72px;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
 }
 
 .user {
-    width: 33%;
-    background-color: red;
+    align-self: flex-start;
 }
 
 .rep {
-    width: 67%;
-    background-color: grey;
+
 }

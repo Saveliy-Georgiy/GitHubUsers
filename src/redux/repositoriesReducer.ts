@@ -11,6 +11,7 @@ const initialState: RepositoriesPageType = {
     pageSize: 4,
     totalRepCount: 0,
     currentPage: 1,
+    siblingCount: 2,
     repositories: [] as Array<RepositoryType>,
 }
 
@@ -27,7 +28,8 @@ export type RepositoryType = {
 export type RepositoriesPageType = {
     pageSize: number
     totalRepCount: number
-    currentPage: number
+    currentPage: number | string
+    siblingCount: number
     repositories: Array<RepositoryType>
 }
 
@@ -56,13 +58,13 @@ export const setTotalRepCount = (totalRepCount: number) => {
         payload: {totalRepCount,},
     } as const
 }
-export const setCurrentPage = (currentPage: number) => {
+export const setCurrentPage = (currentPage: number | string) => {
     return {
         type: SET_CURRENT_PAGE,
         payload: {currentPage,},
     } as const
 }
-export const requestRepositories = (login: string, currentPage: number): AppThunk => {
+export const requestRepositories = (login: string, currentPage: number | string): AppThunk => {
     return (dispatch) => {
         dispatch(setCurrentPage(currentPage))
         userAPI.getRepositories(login, currentPage)

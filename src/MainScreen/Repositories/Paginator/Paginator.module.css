@@ -1,0 +1,43 @@
+.paginator {
+    padding: 10px;
+}
+
+.paginationContainer {
+    display: flex;
+    align-self: flex-end;
+}
+
+.paginationItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 14px;
+    color: #808080;
+    width: 21px;
+    height: 25px;
+    margin: 0 4px 0 4px;
+    border-radius: 3px;
+}
+
+.selectedPage {
+    background: #0064EB;
+    color: white;
+}
+
+.arrow {
+    width: 7.12px;
+    height: 11.41px;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.button {
+    border: 0;
+}
+
+
+

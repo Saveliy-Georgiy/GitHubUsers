@@ -1,8 +1,42 @@
 .repositoriesWrapper {
     display: flex;
     flex-direction: column;
+    margin: 30px 44px 28px 57px;
 }
 
+.repositoriesHeader {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+}
+
+.repository {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 877px;
+    height: 112px;
+    margin: 12px 0 12px 0;
+    border-radius: 6px;
+}
+
+.textWrapper {
+    padding: 24px 0 0 32px;
+}
+
+.name {
+    font-weight: 500;
+    font-size: 24px;
+    color: #0064EB;
+    text-decoration: none;
+}
+
+.description {
+    padding-top: 16px;
+
+}
+
+/*
 .paginator {
     padding: 10px;
 }
@@ -14,4 +48,4 @@
 
 .simplePage {
     padding: 2px;
-}
+}*/

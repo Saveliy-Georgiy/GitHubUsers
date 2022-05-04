@@ -5,49 +5,44 @@ import {AppStateType} from "../../redux/store";
 import {repositoriesPage, RepositoriesPageType, requestRepositories} from "../../redux/repositoriesReducer";
 import {ThunkDispatch} from "redux-thunk";
 import {AnyAction} from "redux";
+import {Paginator} from "./Paginator/Paginator";
 
 export const Repositories = () => {
 
     const dispatch = useDispatch<ThunkDispatch<AppStateType, any, AnyAction>>()
 
-    /*const repositoriesPage = useSelector<AppStateType, RepositoriesPageType>(state => state.repositoriesPage)
-*/
     const public_repos = useSelector<AppStateType, number>(state => state.userPage.user.public_repos)
 
     const {
         totalRepCount,
-       pageSize,
-       repositories,
-       currentPage,
+        pageSize,
+        repositories,
+        currentPage,
+        siblingCount,
     } = useSelector<AppStateType, RepositoriesPageType>(repositoriesPage)
 
-    let pagesCount = Math.ceil(totalRepCount / pageSize)
-
-    const onPageChanged = (currentPage: number) => {
+    const onPageChange = (currentPage: number | string) => {
         dispatch(requestRepositories(repositories[0].owner.login, currentPage))
     }
 
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i)
-    }
     return (
         <div className={s.repositoriesWrapper}>
-            <span>{`Repositories (${public_repos})`}</span>
+            <span className={s.repositoriesHeader}>{`Repositories (${public_repos})`}</span>
             {
-                repositories.map(r => <div key={r.id}>
-                    <span>{r.name}</span>
-                    <span>{r.description}</span>
+                repositories.map(r => <div key={r.id} className={s.repository}>
+                    <div className={s.textWrapper}>
+                        <a className={s.name} href={r.html_url}>{r.name}</a>
+                        <div className={s.description}>{r.description}</div>
+                    </div>
                 </div>)
             }
-            <div className={s.paginator}>
-                {pages.map(p => {
-                    return <span
-                        className={currentPage === p ? s.selectedPage : s.simplePage}
-                        onClick={() => onPageChanged(p)}
-                    >{p}</span>
-                })}
-            </div>
+            <Paginator
+                // @ts-ignore
+                currentPage={currentPage}
+                onPageChange={onPageChange}
+                totalCount={totalRepCount}
+                pageSize={pageSize}
+                siblingCount={siblingCount}/>
         </div>
     );
 };

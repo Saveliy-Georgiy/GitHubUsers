@@ -8,7 +8,7 @@ export const userAPI = {
     getUser(name: string) {
         return instance.get(`users/${name}`)
     },
-    getRepositories(name: string, page: number) {
+    getRepositories(name: string, page: number | string) {
         return instance.get(`users/${name}/repos`, {
             params: {
                 per_page: 4,
