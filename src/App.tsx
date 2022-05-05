@@ -2,25 +2,41 @@ import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 import './App.css';
 import {Header} from './components/Header/Header';
-import {InitialState} from './components/InitialState/InitialState';
-import {UserNotFound} from './components/UserNotFound/UserNotFound';
-import {RepositoriesNotFound} from "./components/RepositoriesNotFound/RepositoriesNotFound";
 import {MainScreen} from './MainScreen/MainScreen';
+import {useSelector} from "react-redux";
+import {AppStateType} from "./redux/store";
+import {UserPageType} from "./redux/userReducer";
+import {SearchResult} from "./universal/SearchResult/SearchResult";
+import search from './icons/search.png'
+import user from './icons/user.png'
 
 const App = () => {
+
+    const userPage = useSelector<AppStateType, UserPageType>(state => state.userPage)
+
+       /* if (userPage.initialPage) {
+            return <Navigate to={'/'}/>
+        } else {
+            if (userPage.isFound) {
+                return <Navigate to={'/user'}/>
+            } else {
+                return <Navigate to={'/user-not-found'}/>
+            }
+        }*/
+
     return (
-        <div>
-           <Header/>
+        <div className="App">
+            <Header/>
+            <div className={"content"}>
                 <Routes>
                     <Route path="/"
-                           element={<InitialState/>}/>
+                           element={<SearchResult src={search} value={"Start with searching a GitHub user"}/>}/>
+                    <Route path="/user-not-found"
+                           element={<SearchResult src={user} value={"User not found"}/>}/>
                     <Route path="/user"
                            element={<MainScreen/>}/>
-                    <Route path="/user-not-found"
-                           element={<UserNotFound/>}/>
-                    <Route path="/repositories-not-found"
-                           element={<RepositoriesNotFound/>}/>
                 </Routes>
+            </div>
         </div>
     );
 }

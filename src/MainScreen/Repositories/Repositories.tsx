@@ -7,11 +7,12 @@ import {ThunkDispatch} from "redux-thunk";
 import {AnyAction} from "redux";
 import {Paginator} from "./Paginator/Paginator";
 
-export const Repositories = () => {
+type RepositoriesPropsType = {
+    public_repos: number
+}
+export const Repositories = (props: RepositoriesPropsType) => {
 
     const dispatch = useDispatch<ThunkDispatch<AppStateType, any, AnyAction>>()
-
-    const public_repos = useSelector<AppStateType, number>(state => state.userPage.user.public_repos)
 
     const {
         totalRepCount,
@@ -27,7 +28,7 @@ export const Repositories = () => {
 
     return (
         <div className={s.repositoriesWrapper}>
-            <span className={s.repositoriesHeader}>{`Repositories (${public_repos})`}</span>
+            <span className={s.repositoriesHeader}>{`Repositories (${props.public_repos})`}</span>
             {
                 repositories.map(r => <div key={r.id} className={s.repository}>
                     <div className={s.textWrapper}>

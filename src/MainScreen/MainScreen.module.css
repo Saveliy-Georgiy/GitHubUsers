@@ -1,13 +1,10 @@
 .screenWrapper {
-    padding-top: 72px;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
 }
 
 .user {
-    align-self: flex-start;
+
 }
 
 .rep {

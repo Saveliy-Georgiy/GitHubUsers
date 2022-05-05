@@ -4,13 +4,19 @@ import {searchRepositories, setCurrentPage, setTotalRepCount} from "./repositori
 
 export const CHANGE_INPUT_TITLE = 'CHANGE_INPUT_TITLE';
 export const SEARCH_USER = 'SEARCH_USER';
+export const USER_NOT_FOUND = 'USER_NOT_FOUND';
 
-export type UserActionsType = ReturnType<typeof changeInputTitle> | ReturnType<typeof searchUser>
+export type UserActionsType =
+    ReturnType<typeof changeInputTitle>
+    | ReturnType<typeof searchUser>
+    | ReturnType<typeof userNotFound>
 
 const initialState: UserPageType = {
     title: '',
     user: {} as UserType,
-    isAuth: false,
+    initialPage: true,
+    isFound: false,
+    isLoaded: false,
 }
 
 export type UserType = {
@@ -51,7 +57,9 @@ export type UserType = {
 export type UserPageType = {
     title: string
     user: UserType
-    isAuth: boolean
+    initialPage: boolean
+    isFound: boolean
+    isLoaded: boolean
 }
 
 export const userReducer = (state = initialState, action: UserActionsType): UserPageType => {
@@ -59,7 +67,7 @@ export const userReducer = (state = initialState, action: UserActionsType): User
         case CHANGE_INPUT_TITLE:
             return {...state, ...action.payload}
         case SEARCH_USER:
-            return {...state, ...action.payload, isAuth: true}
+            return {...state, ...action.payload}
         default:
             return state
     }
@@ -72,10 +80,17 @@ export const changeInputTitle = (title: string) => {
     } as const
 }
 
-export const searchUser = (user: UserType) => {
+export const searchUser = (user: UserType, initialPage: boolean, isFound: boolean) => {
     return {
         type: SEARCH_USER,
-        payload: {user,},
+        payload: {user, initialPage, isFound,},
+    } as const
+}
+
+export const userNotFound = (initialPage: boolean, isFound: boolean) => {
+    return {
+        type: USER_NOT_FOUND,
+        payload: {initialPage, isFound,},
     } as const
 }
 
@@ -83,10 +98,11 @@ export const requestUser = (title: string): AppThunk => {
     return (dispatch) => {
         userAPI.getUser(title)
             .then(response => {
-                dispatch(searchUser(response.data))
+                dispatch(searchUser(response.data, false, true))
                 dispatch(setTotalRepCount(response.data.public_repos))
             })
             .catch(e => {
+                dispatch(userNotFound(false, false))
                 console.log(e)
             })
         dispatch(setCurrentPage(1))

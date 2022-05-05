@@ -9,11 +9,13 @@ type SearchResultPropsType = {
 
 export const SearchResult = (props: SearchResultPropsType) => {
     return (
-        <div className={s.initialStateWrapper}>
-            <div className={s.imgWrapper}>
-                <img src={props.src}/>
+        <div>
+            <div className={s.searchResultWrapper}>
+                <div className={s.imgWrapper}>
+                    <img src={props.src}/>
+                </div>
+                <Span value={props.value}/>
             </div>
-            <Span value={props.value}/>
         </div>
     );
 };
