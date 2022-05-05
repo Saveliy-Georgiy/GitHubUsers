@@ -11,7 +11,7 @@ export const SearchResult = (props: SearchResultPropsType) => {
     return (
             <div className={s.searchResultWrapper}>
                 <div className={s.imgWrapper}>
-                    <img src={props.src}/>
+                    <img src={props.src} alt=""/>
                 </div>
                 <Span value={props.value}/>
             </div>
