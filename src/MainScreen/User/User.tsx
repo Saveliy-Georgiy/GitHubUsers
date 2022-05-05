@@ -20,17 +20,17 @@ export const User = () => {
 
     return (
         <div className={s.userWrapper}>
-            <img src={user.avatar_url} className={s.avatar}/>
+            <img src={user.avatar_url} alt="avatar" className={s.avatar}/>
             <div className={s.information}>
                 <span className={s.name}>{finalUserName}</span>
                 <a href={user.html_url} className={s.login} target="__blank">{user.login}</a>
                 <div className={s.peopleWrapper}>
                     <div className={s.people}>
-                        <img src={followers}/>
+                        <img src={followers} alt=""/>
                         <span>{finalFollowers} followers</span>
                     </div>
                     <div className={s.people}>
-                        <img src={following}/>
+                        <img src={following} alt=""/>
                         <span>{finalFollowing} following</span>
                     </div>
                 </div>

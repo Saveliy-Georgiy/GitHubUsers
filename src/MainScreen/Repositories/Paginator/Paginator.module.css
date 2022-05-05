@@ -19,11 +19,13 @@
     height: 25px;
     margin: 0 4px 0 4px;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .listPages {
     flex-direction: row;
     width: auto;
+    cursor: auto;
 }
 
 .selectedPage {
@@ -36,12 +38,8 @@
     height: 11.41px;
 }
 
-.disabled {
-    pointer-events: none;
-}
-
-.button {
-    border: 0;
+.dots {
+    cursor: auto;
 }
 
 

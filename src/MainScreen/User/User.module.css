@@ -43,5 +43,7 @@
 }
 
 .people img {
-    padding-right: 3px;
+    padding: 0 8.92px 3px 0;
+    width: 24.08px;
+    height: 24px;
 }

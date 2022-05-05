@@ -33,21 +33,22 @@ export const Paginator = (props: PaginatorPropsType) => {
     const onNext = () => {
         onPageChange(currentPage + 1);
     };
-
     const onPrevious = () => {
         onPageChange(currentPage - 1);
     };
 
     let lastPage = paginationRange[paginationRange.length - 1];
+    const finalPageStyle = (pageNumber: number | string) => {
+        return `${s.paginationItem} ${currentPage === pageNumber && s.selectedPage}`
+    }
+    const finalListPagesStyle = `${s.paginationItem}  ${s.listPages}`
+    const finalDotsStyle = `${s.paginationItem}  ${s.dots}`
+    const finalListPages = `${pageSize * currentPage - (pageSize - 1)}-${pageSize * currentPage} of ${totalCount} items`
 
-const finalPageStyle = (pageNumber: number | string) => {
-    return `${s.paginationItem} ${currentPage === pageNumber && s.selectedPage}`
-}
-const finalListPages = `${s.paginationItem}  ${s.listPages}`
     return (
         <div className={s.paginationContainer}>
-            <div className={finalListPages}>
-                {4*currentPage-3}-{4*currentPage} of {totalCount} items
+            <div className={finalListPagesStyle}>
+                {finalListPages}
             </div>
             <div className={s.paginationItem}>
                 {currentPage === 1
@@ -56,9 +57,8 @@ const finalListPages = `${s.paginationItem}  ${s.listPages}`
             </div>
             {paginationRange.map((pageNumber: number | string) => {
                 if (pageNumber === DOTS) {
-                    return <span className={s.paginationItem}>{DOTS}</span>;
+                    return <span className={finalDotsStyle}>{DOTS}</span>;
                 }
-
                 return (
                     <span
                         className={finalPageStyle(pageNumber)}
@@ -74,6 +74,5 @@ const finalListPages = `${s.paginationItem}  ${s.listPages}`
                     : <img src={arrowRightBlue} alt="next" onClick={onNext} className={s.arrow}/>}
             </div>
         </div>
-
     );
 };
