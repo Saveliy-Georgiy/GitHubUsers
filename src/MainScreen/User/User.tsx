@@ -13,7 +13,6 @@ export const User = () => {
     const finalPeople = (people: number) => {
         return people >= 1000 ? `${(people/1000).toFixed(1)}k`: people
     }
-
     const finalUserName = user.name === null ? user.login : user.name
     const finalFollowers = finalPeople(user.followers)
     const finalFollowing = finalPeople(user.following)
