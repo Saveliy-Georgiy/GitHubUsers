@@ -18,7 +18,7 @@ export const MainScreen = () => {
             </div>
             <div className={s.rep}>
                 {public_repos === 0
-                    ?  <SearchResult src={cross} value={"Repository list is empty"}/>
+                    ? <SearchResult src={cross} value={"Repository list is empty"}/>
                     : <Repositories public_repos={public_repos}/>}
             </div>
         </div>
