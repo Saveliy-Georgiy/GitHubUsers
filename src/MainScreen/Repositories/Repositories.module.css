@@ -7,7 +7,6 @@
 .repositoriesHeader {
     font-weight: 600;
     font-size: 32px;
-    line-height: 130%;
 }
 
 .repository {
@@ -15,8 +14,9 @@
     flex-direction: column;
     background-color: white;
     width: 877px;
-    height: 112px;
+    min-height: 112px;
     margin: 12px 0 12px 0;
+    padding-right: 10px;
     border-radius: 6px;
 }
 
@@ -33,19 +33,66 @@
 
 .description {
     padding-top: 16px;
-
 }
 
-/*
-.paginator {
-    padding: 10px;
+@media screen and (max-width: 1340px) {
+    .repository {
+        width: 777px;
+    }
 }
 
-.selectedPage {
-    font-weight: bold;
-    padding: 2px;
+@media screen and (max-width: 1240px) {
+    .repository {
+        width: 677px;
+    }
 }
 
-.simplePage {
-    padding: 2px;
-}*/
+@media screen and (max-width: 1140px) {
+    .repository {
+        width: 577px;
+    }
+}
+
+@media screen and (max-width: 1040px) {
+    .repository {
+        width: 477px;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .repository {
+        width: 377px;
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .repositoriesWrapper {
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .repositoriesWrapper {
+        margin: 30px 0 28px 0;
+
+    }
+    .repository {
+        width: 327px;
+    }
+    .repositoriesHeader {
+        font-size: 26px;
+    }
+    .name {
+        font-size: 20px;
+    }
+    .textWrapper {
+        padding: 10px 0 0 10px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .repository {
+        width: 227px;
+     
+    }
+}

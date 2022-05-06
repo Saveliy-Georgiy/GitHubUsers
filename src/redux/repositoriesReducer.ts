@@ -11,7 +11,7 @@ const initialState: RepositoriesPageType = {
     pageSize: 4,
     totalRepCount: 0,
     currentPage: 1,
-    siblingCount: 2,
+    siblingCount: 1,
     repositories: [] as Array<RepositoryType>,
 }
 

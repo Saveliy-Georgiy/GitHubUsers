@@ -47,3 +47,26 @@
     width: 24.08px;
     height: 24px;
 }
+
+@media screen and (max-width: 840px) {
+    .avatar {
+        height: 230px;
+        width: 230px;
+        border-radius: 115px;
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .userWrapper {
+        margin-left: 0;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .people {
+        display: flex;
+        flex-direction: column;
+    }
+}
+

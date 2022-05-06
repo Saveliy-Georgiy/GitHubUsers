@@ -4,10 +4,9 @@ import {User} from "./User/User";
 import s from './MainScreen.module.css'
 import {useSelector} from "react-redux";
 import {AppStateType} from "../redux/store";
-import {SearchResult} from "../universal/SearchResult/SearchResult";
-import cross from "../icons/cross.png";
 import {UserPageType} from "../redux/userReducer";
 import {Navigate} from "react-router-dom";
+import {RepositoriesNotFound} from '../components/RepositoriesNotFound/RepositoriesNotFound';
 
 export const MainScreen = () => {
 
@@ -20,14 +19,10 @@ export const MainScreen = () => {
 
     return (
         <div className={s.screenWrapper}>
-            <div className={s.user}>
                 <User/>
-            </div>
-            <div className={s.rep}>
                 {public_repos === 0
-                    ? <SearchResult src={cross} value={"Repository list is empty"}/>
+                    ?  <RepositoriesNotFound/>
                     : <Repositories public_repos={public_repos}/>}
-            </div>
         </div>
     );
 };

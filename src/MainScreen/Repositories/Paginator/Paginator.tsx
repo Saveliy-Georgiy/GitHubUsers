@@ -46,8 +46,8 @@ export const Paginator = (props: PaginatorPropsType) => {
     const range = pageSize * currentPage
     const finalListPages = totalCount === 1
         ? `${totalCount} of ${totalCount} item`
-        : `${range - (pageSize - 1)}-${totalCount > 4 
-            ? range > totalCount ? totalCount: range
+        : `${range - (pageSize - 1)}-${totalCount > 4
+            ? range > totalCount ? totalCount : range
             : totalCount} 
         of ${totalCount} items`
 
@@ -56,28 +56,30 @@ export const Paginator = (props: PaginatorPropsType) => {
             <div className={finalListPagesStyle}>
                 {finalListPages}
             </div>
-            <div className={s.paginationItem}>
-                {currentPage === 1
-                    ? <img src={arrowLeftGrey} alt="prev" className={s.arrow}/>
-                    : <img src={arrowLeftBlue} alt="prev" onClick={onPrevious} className={s.arrow}/>}
-            </div>
-            {paginationRange.map((pageNumber: number | string, i: number) => {
-                if (pageNumber === DOTS) {
-                    return <span key={paginationRange[i]} className={finalDotsStyle}>{DOTS}</span>;
-                }
-                return (
-                    <span key={paginationRange[i]}
-                        className={finalPageStyle(pageNumber)}
-                        onClick={() => onPageChange(pageNumber)}
-                    >
+            <div className={s.pagesContainer}>
+                <div className={s.paginationItem}>
+                    {currentPage === 1
+                        ? <img src={arrowLeftGrey} alt="prev" className={s.arrow}/>
+                        : <img src={arrowLeftBlue} alt="prev" onClick={onPrevious} className={s.arrow}/>}
+                </div>
+                {paginationRange.map((pageNumber: number | string, i: number) => {
+                    if (pageNumber === DOTS) {
+                        return <span key={paginationRange[i]} className={finalDotsStyle}>{DOTS}</span>;
+                    }
+                    return (
+                        <span key={paginationRange[i]}
+                              className={finalPageStyle(pageNumber)}
+                              onClick={() => onPageChange(pageNumber)}
+                        >
                         {pageNumber}
                     </span>
-                );
-            })}
-            <div className={s.paginationItem}>
-                {currentPage === lastPage
-                    ? <img src={arrowRightGrey} alt="next" className={s.arrow}/>
-                    : <img src={arrowRightBlue} alt="next" onClick={onNext} className={s.arrow}/>}
+                    );
+                })}
+                <div className={s.paginationItem}>
+                    {currentPage === lastPage
+                        ? <img src={arrowRightGrey} alt="next" className={s.arrow}/>
+                        : <img src={arrowRightBlue} alt="next" onClick={onNext} className={s.arrow}/>}
+                </div>
             </div>
         </div>
     );

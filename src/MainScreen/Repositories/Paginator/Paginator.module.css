@@ -1,10 +1,11 @@
-.paginator {
-    padding: 10px;
-}
-
 .paginationContainer {
     display: flex;
     align-self: flex-end;
+}
+
+.pagesContainer {
+    display: flex;
+    flex-direction: row;
 }
 
 .paginationItem {
@@ -40,6 +41,13 @@
 
 .dots {
     cursor: auto;
+}
+
+@media screen and (max-width: 450px) {
+    .paginationContainer {
+        flex-direction: column;
+        align-self: center;
+    }
 }
 
 
