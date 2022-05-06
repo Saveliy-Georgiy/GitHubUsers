@@ -36,9 +36,7 @@ export type RepositoriesPageType = {
 export const repositoriesReducer = (state = initialState, action: RepositoriesActionsType): RepositoriesPageType => {
     switch (action.type) {
         case SEARCH_REPOSITORIES:
-            return {...state, ...action.payload}
         case SET_TOTAL_REP_COUNT:
-            return {...state, ...action.payload}
         case SET_CURRENT_PAGE:
             return {...state, ...action.payload}
         default:

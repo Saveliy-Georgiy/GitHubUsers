@@ -28,7 +28,6 @@ export type UserType = {
     public_repos: number
     followers: number
     following: number
-
 }
 
 export type UserPageType = {
@@ -42,9 +41,7 @@ export type UserPageType = {
 export const userReducer = (state = initialState, action: UserActionsType): UserPageType => {
     switch (action.type) {
         case CHANGE_INPUT_TITLE:
-            return {...state, ...action.payload}
         case SEARCH_USER:
-            return {...state, ...action.payload}
         case USER_NOT_FOUND:
             return {...state, ...action.payload}
         default:
