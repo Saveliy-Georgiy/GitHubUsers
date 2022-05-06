@@ -61,12 +61,12 @@ export const Paginator = (props: PaginatorPropsType) => {
                     ? <img src={arrowLeftGrey} alt="prev" className={s.arrow}/>
                     : <img src={arrowLeftBlue} alt="prev" onClick={onPrevious} className={s.arrow}/>}
             </div>
-            {paginationRange.map((pageNumber: number | string) => {
+            {paginationRange.map((pageNumber: number | string, i: number) => {
                 if (pageNumber === DOTS) {
-                    return <span className={finalDotsStyle}>{DOTS}</span>;
+                    return <span key={paginationRange[i]} className={finalDotsStyle}>{DOTS}</span>;
                 }
                 return (
-                    <span
+                    <span key={paginationRange[i]}
                         className={finalPageStyle(pageNumber)}
                         onClick={() => onPageChange(pageNumber)}
                     >
