@@ -43,7 +43,13 @@ export const Paginator = (props: PaginatorPropsType) => {
     }
     const finalListPagesStyle = `${s.paginationItem}  ${s.listPages}`
     const finalDotsStyle = `${s.paginationItem}  ${s.dots}`
-    const finalListPages = `${pageSize * currentPage - (pageSize - 1)}-${pageSize * currentPage} of ${totalCount} items`
+    const range = pageSize * currentPage
+    const finalListPages = totalCount === 1
+        ? `${totalCount} of ${totalCount} item`
+        : `${range - (pageSize - 1)}-${totalCount > 4 
+            ? range > totalCount ? totalCount: range
+            : totalCount} 
+        of ${totalCount} items`
 
     return (
         <div className={s.paginationContainer}>
