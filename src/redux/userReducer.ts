@@ -68,6 +68,8 @@ export const userReducer = (state = initialState, action: UserActionsType): User
             return {...state, ...action.payload}
         case SEARCH_USER:
             return {...state, ...action.payload}
+        case USER_NOT_FOUND:
+            return {...state, ...action.payload}
         default:
             return state
     }
