@@ -1,11 +1,12 @@
 import React from 'react';
 import s from './Repositories.module.css'
 import {useDispatch, useSelector} from "react-redux";
-import {AppStateType} from "../../redux/store";
-import {repositoriesPage, RepositoriesPageType, requestRepositories} from "../../redux/repositoriesReducer";
 import {ThunkDispatch} from "redux-thunk";
 import {AnyAction} from "redux";
 import {Paginator} from "./Paginator/Paginator";
+import {AppStateType} from "../../../redux/store";
+import {repositoriesPage, RepositoriesPageType, requestRepositories} from '../../../redux/repositoriesReducer';
+import {Repository} from "./Repository/Repository";
 
 type RepositoriesPropsType = {
     public_repos: number
@@ -30,12 +31,8 @@ export const Repositories = (props: RepositoriesPropsType) => {
         <div className={s.repositoriesWrapper}>
             <span className={s.repositoriesHeader}>{`Repositories (${props.public_repos})`}</span>
             {
-                repositories.map(r => <div key={r.id} className={s.repository}>
-                    <div className={s.textWrapper}>
-                        <a className={s.name} href={r.html_url} target="__blank">{r.name}</a>
-                        <div className={s.description}>{r.description}</div>
-                    </div>
-                </div>)
+                repositories.map(r =>
+                    <Repository key={r.id} href={r.html_url} name={r.name} description={r.description}/>)
             }
             <Paginator
                 // @ts-ignore

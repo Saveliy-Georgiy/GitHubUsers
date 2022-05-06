@@ -2,9 +2,9 @@ import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 import './App.css';
 import {Header} from './components/Header/Header';
-import {MainScreen} from './MainScreen/MainScreen';
 import {UserNotFound} from './components/UserNotFound/UserNotFound';
 import {InitialState} from "./components/InitialState/InitialState";
+import {MainScreen} from "./components/MainScreen/MainScreen";
 
 const App = () => {
     return (

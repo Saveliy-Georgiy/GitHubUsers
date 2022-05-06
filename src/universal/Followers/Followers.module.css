@@ -1,0 +1,20 @@
+.followers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 25px 20px 0 0;
+    font-size: 16px;
+}
+
+.followers img {
+    padding: 0 8.92px 3px 0;
+    width: 24.08px;
+    height: 24px;
+}
+
+@media screen and (max-width: 480px) {
+    .followers {
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -29,23 +29,9 @@
     color: #0064EB;
 }
 
-.peopleWrapper {
+.followersWrapper {
     display: flex;
     flex-direction: row;
-}
-
-.people {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 25px 20px 0 0;
-    font-size: 16px;
-}
-
-.people img {
-    padding: 0 8.92px 3px 0;
-    width: 24.08px;
-    height: 24px;
 }
 
 @media screen and (max-width: 840px) {
@@ -60,13 +46,6 @@
     .userWrapper {
         margin-left: 0;
         align-items: center;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .people {
-        display: flex;
-        flex-direction: column;
     }
 }
 

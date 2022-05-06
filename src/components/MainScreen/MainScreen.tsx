@@ -3,10 +3,11 @@ import {Repositories} from './Repositories/Repositories';
 import {User} from "./User/User";
 import s from './MainScreen.module.css'
 import {useSelector} from "react-redux";
-import {AppStateType} from "../redux/store";
-import {UserPageType} from "../redux/userReducer";
 import {Navigate} from "react-router-dom";
-import {RepositoriesNotFound} from '../components/RepositoriesNotFound/RepositoriesNotFound';
+import {AppStateType} from "../../redux/store";
+import {UserPageType} from "../../redux/userReducer";
+import {RepositoriesNotFound} from "../RepositoriesNotFound/RepositoriesNotFound";
+
 
 export const MainScreen = () => {
 
@@ -21,7 +22,7 @@ export const MainScreen = () => {
         <div className={s.screenWrapper}>
                 <User/>
                 {public_repos === 0
-                    ?  <RepositoriesNotFound/>
+                    ? <RepositoriesNotFound/>
                     : <Repositories public_repos={public_repos}/>}
         </div>
     );

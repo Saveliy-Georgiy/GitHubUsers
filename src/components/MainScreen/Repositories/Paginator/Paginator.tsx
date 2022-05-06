@@ -1,10 +1,10 @@
 import React from 'react';
 import s from "./Paginator.module.css";
 import {DOTS, usePagination} from "./usePagination";
-import arrowLeftBlue from "../../../icons/arrowLeftBlue.png"
-import arrowLeftGrey from "../../../icons/arrowLeftGrey.png"
-import arrowRightBlue from "../../../icons/arrowRightBlue.png"
-import arrowRightGrey from "../../../icons/arrowRightGrey.png"
+import arrowLeftBlue from "../../../../icons/arrowLeftBlue.png"
+import arrowLeftGrey from "../../../../icons/arrowLeftGrey.png"
+import arrowRightBlue from "../../../../icons/arrowRightBlue.png"
+import arrowRightGrey from "../../../../icons/arrowRightGrey.png"
 
 type PaginatorPropsType = {
     currentPage: number
