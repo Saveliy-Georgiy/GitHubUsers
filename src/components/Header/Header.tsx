@@ -25,9 +25,9 @@ export const Header = () => {
 
     return (
         <header className={s.header}>
-            <img src={logo}/>
+            <img src={logo} alt="logo"/>
             <div className={s.searchBlock}>
-                <img src={search}/>
+                <img src={search} alt="search:"/>
                 <input
                     type="text"
                     placeholder="Enter GitHub username"
@@ -39,3 +39,5 @@ export const Header = () => {
         </header>
     );
 };
+
+

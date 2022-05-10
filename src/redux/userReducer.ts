@@ -5,18 +5,20 @@ import {searchRepositories, setCurrentPage, setTotalRepCount} from "./repositori
 export const CHANGE_INPUT_TITLE = 'CHANGE_INPUT_TITLE';
 export const SEARCH_USER = 'SEARCH_USER';
 export const USER_NOT_FOUND = 'USER_NOT_FOUND';
+export const LOADING = 'LOADING';
 
 export type UserActionsType =
     ReturnType<typeof changeInputTitle>
     | ReturnType<typeof searchUser>
     | ReturnType<typeof userNotFound>
+    | ReturnType<typeof loading>
 
 const initialState: UserPageType = {
     title: '',
     user: {} as UserType,
     initialPage: true,
     isFound: false,
-    isLoaded: false,
+    isLoaded: true,
 }
 
 export type UserType = {
@@ -43,6 +45,7 @@ export const userReducer = (state = initialState, action: UserActionsType): User
         case CHANGE_INPUT_TITLE:
         case SEARCH_USER:
         case USER_NOT_FOUND:
+        case LOADING:
             return {...state, ...action.payload}
         default:
             return state
@@ -70,8 +73,15 @@ export const userNotFound = (initialPage: boolean, isFound: boolean) => {
     } as const
 }
 
+export const loading = (isLoaded: boolean) => {
+    return {
+        type: LOADING,
+        payload: {isLoaded,},
+    } as const
+}
 export const requestUser = (title: string): AppThunk => {
     return (dispatch) => {
+        dispatch(loading(false))
         userAPI.getUser(title)
             .then(response => {
                 dispatch(searchUser(response.data, false, true))
@@ -86,5 +96,6 @@ export const requestUser = (title: string): AppThunk => {
             .then(response => {
                 dispatch(searchRepositories(response.data))
             })
+        dispatch(loading(true))
     }
 }

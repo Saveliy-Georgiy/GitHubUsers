@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchResult } from '../../universal/SearchResult/SearchResult';
+import {SearchResult} from '../../universal/SearchResult/SearchResult';
 import search from '../../icons/search.png'
 import {Navigate} from "react-router-dom";
 import {useSelector} from "react-redux";

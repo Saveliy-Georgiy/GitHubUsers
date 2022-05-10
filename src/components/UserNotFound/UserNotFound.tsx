@@ -1,7 +1,7 @@
 import React from 'react';
-import { SearchResult } from '../../universal/SearchResult/SearchResult';
+import {SearchResult} from '../../universal/SearchResult/SearchResult';
 import user from '../../icons/user.png'
-import { Navigate } from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 import {useSelector} from "react-redux";
 import {AppStateType} from "../../redux/store";
 import {UserPageType} from "../../redux/userReducer";
